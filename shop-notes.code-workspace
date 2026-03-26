@@ -1,0 +1,120 @@
+﻿{
+  "folders": [
+    { "path": "." }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true
+    },
+    "markdown.preview.breaks": true,
+    "editor.wordWrap": "on",
+    "powershell.integratedConsole.showOnStartup": false
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-vscode.powershell",
+      "yzhang.markdown-all-in-one",
+      "bierner.markdown-mermaid",
+      "GitHub.vscode-pull-request-github",
+      "streetsidesoftware.code-spell-checker"
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "New Resin Recipe",
+        "type": "shell",
+        "command": "pwsh",
+        "args": [
+          "-File",
+          "./_scripts/new-recipe.ps1",
+          ""
+        ],
+        "problemMatcher": []
+      },
+      {
+        "label": "New Woodworking Project",
+        "type": "shell",
+        "command": "pwsh",
+        "args": [
+          "-File",
+          "./_scripts/new-wood-project.ps1",
+          ""
+        ],
+        "problemMatcher": []
+      },
+      {
+        "label": "New Jig",
+        "type": "shell",
+        "command": "pwsh",
+        "args": [
+          "-File",
+          "./_scripts/new-jig.ps1",
+          ""
+        ],
+        "problemMatcher": []
+      },
+      {
+        "label": "New Finishing Test",
+        "type": "shell",
+        "command": "pwsh",
+        "args": [
+          "-File",
+          "./_scripts/new-finishing-test.ps1",
+          ""
+        ],
+        "problemMatcher": []
+      },
+      {
+        "label": "New Electronics Build",
+        "type": "shell",
+        "command": "pwsh",
+        "args": [
+          "-File",
+          "./_scripts/new-electronics-build.ps1",
+          ""
+        ],
+        "problemMatcher": []
+      },
+      {
+        "label": "Build Index",
+        "type": "shell",
+        "command": "pwsh",
+        "args": [
+          "-File",
+          "./_scripts/build-index.ps1"
+        ],
+        "problemMatcher": []
+      }
+    ]
+  },
+  "inputs": [
+    {
+      "id": "recipeName",
+      "type": "promptString",
+      "description": "Name of the new resin recipe"
+    },
+    {
+      "id": "woodProjectName",
+      "type": "promptString",
+      "description": "Name of the new woodworking project"
+    },
+    {
+      "id": "jigName",
+      "type": "promptString",
+      "description": "Name of the new jig"
+    },
+    {
+      "id": "finishingTestName",
+      "type": "promptString",
+      "description": "Name of the new finishing test"
+    },
+    {
+      "id": "electronicsBuildName",
+      "type": "promptString",
+      "description": "Name of the new electronics build"
+    }
+  ]
+}

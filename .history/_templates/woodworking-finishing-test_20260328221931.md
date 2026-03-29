@@ -1,9 +1,9 @@
-﻿# Finishing“ {{Name}}
+﻿# Finishing Test â€“ {{Name}}
 
 **Date:** {{Date}}  
 **Test ID:** {{TestId}}  
-**Wood Species:**  NA
-**Surface Prep:** NA
+**Wood Species:**  
+**Surface Prep:** (grits, techniques)
 
 ---
 
@@ -15,6 +15,12 @@
 - Coats:
 - Dry Time Between Coats:
 - Final Buff / Polish:
+
+---
+
+## Test Variables
+
+- 
 
 ---
 

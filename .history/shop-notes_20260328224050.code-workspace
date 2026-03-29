@@ -62,7 +62,7 @@
         "command": "pwsh",
         "args": [
           "-File",
-          "./_scripts/new-finishing.ps1",
+          "./_scripts/new-finishing-test.ps1",
           ""
         ],
         "problemMatcher": []

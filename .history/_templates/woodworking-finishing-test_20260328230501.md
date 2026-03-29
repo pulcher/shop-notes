@@ -2,8 +2,8 @@
 
 **Date:** {{Date}}  
 **Test ID:** {{TestId}}  
-**Wood Species:**  NA
-**Surface Prep:** NA
+**Wood Species:**  
+**Surface Prep:** (grits, techniques)
 
 ---
 

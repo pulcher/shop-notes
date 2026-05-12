@@ -1,27 +1,38 @@
 ﻿param(
-    [Parameter(Mandatory = \True)]
-    [string]\
+    [Parameter(Mandatory = $true)]
+    [string]$Name
 )
 
-\ = \.ToLower().Replace(" ", "-")
-\ = Get-Date -Format "yyyy-MM-dd"
-\ = "woodworking/jigs/\-\"
+$slug = $Name.ToLower().Replace(" ", "-")
+$date = Get-Date -Format "yyyy-MM-dd"
+$dir = "woodworking/jigs/$date-$slug"
 
-New-Item -ItemType Directory -Path \ -Force | Out-Null
-New-Item -ItemType Directory -Path "\/photos" -Force | Out-Null
-New-Item -ItemType Directory -Path "\/sketches" -Force | Out-Null
+New-Item -ItemType Directory -Path $dir -Force | Out-Null
+New-Item -ItemType Directory -Path "$dir/photos" -Force | Out-Null
+New-Item -ItemType Directory -Path "$dir/sketches" -Force | Out-Null
 
-\ = "\/measurements.json"
-"{}" | Out-File \ -Encoding UTF8
+$measurementsFile = "$dir/measurements.json"
+"{}" | Out-File $measurementsFile -Encoding UTF8
 
-\ = "_templates/woodworking-jig.md"
-\ = Get-Content \ -Raw
+$template = "_templates/woodworking-jig.md"
+$content = Get-Content $template -Raw
 
-\ = \.Replace("{{Name}}", \).
-    Replace("{{Date}}", \).
+$content = $content.Replace("{{Name}}", $Name).
+    Replace("{{Date}}", $date).
     Replace("{{JigId}}", [guid]::NewGuid().ToString())
 
-\ | Out-File "\/jig.md" -Encoding UTF8
+$outputFile = "$dir/jig.md"
+$content | Out-File $outputFile -Encoding UTF8
 
-Write-Host "Created jig at \"
-code "\/jig.md"
+Write-Host "Created jig at $dir"
+
+$editorCommand = Get-Command code -ErrorAction SilentlyContinue
+if (-not $editorCommand) {
+    $editorCommand = Get-Command code-insiders -ErrorAction SilentlyContinue
+}
+
+if ($editorCommand) {
+    & $editorCommand.Source $outputFile
+} else {
+    Write-Warning "VS Code CLI was not found in PATH. Open this file manually: $outputFile"
+}

@@ -30,7 +30,7 @@
         "args": [
           "-File",
           "./_scripts/new-recipe.ps1",
-          ""
+          "${input:recipeName}"
         ],
         "problemMatcher": []
       },
@@ -41,7 +41,7 @@
         "args": [
           "-File",
           "./_scripts/new-wood-project.ps1",
-          ""
+          "${input:woodProjectName}"
         ],
         "problemMatcher": []
       },
@@ -52,7 +52,7 @@
         "args": [
           "-File",
           "./_scripts/new-jig.ps1",
-          ""
+          "${input:jigName}"
         ],
         "problemMatcher": []
       },
@@ -63,7 +63,7 @@
         "args": [
           "-File",
           "./_scripts/new-finishing.ps1",
-          ""
+          "${input:finishingTestName}"
         ],
         "problemMatcher": []
       },
@@ -74,7 +74,18 @@
         "args": [
           "-File",
           "./_scripts/new-electronics-build.ps1",
-          ""
+          "${input:electronicsBuildName}"
+        ],
+        "problemMatcher": []
+      },
+      {
+        "label": "New Resin Note",
+        "type": "shell",
+        "command": "pwsh",
+        "args": [
+          "-File",
+          "./_scripts/new-resin-note.ps1",
+          "${input:resinNoteName}"
         ],
         "problemMatcher": []
       },
@@ -115,6 +126,11 @@
       "id": "electronicsBuildName",
       "type": "promptString",
       "description": "Name of the new electronics build"
+    },
+    {
+      "id": "resinNoteName",
+      "type": "promptString",
+      "description": "Name of the new resin note"
     }
   ]
 }

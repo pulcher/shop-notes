@@ -11,7 +11,7 @@ New-Item -ItemType Directory -Path $dir -Force | Out-Null
 New-Item -ItemType Directory -Path "$dir/photos" -Force | Out-Null
 New-Item -ItemType Directory -Path "$dir/samples" -Force | Out-Null
 
-$template = "_templates/woodworking-finishing.md"
+$template = "_templates/woodworking-finishing-test.md"
 $content = Get-Content $template -Raw
 
 $content = $content.Replace("{{Name}}", $Name).

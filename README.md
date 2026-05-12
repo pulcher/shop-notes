@@ -4,36 +4,36 @@ A unified vault for documenting resin recipes, woodworking projects, jigs, finis
 
 ## Structure
 
-- \esin/recipes/\  
+- resin/recipes/  
   Resin recipes, each in its own dated folder.
 
-- \woodworking/projects/\  
+- resin/notes/  
+  General resin references (pouring, casting, measurements, techniques).
+
+- woodworking/projects/  
   Full woodworking builds.
 
-- \woodworking/jigs/\  
+- woodworking/jigs/  
   Reusable jigs and fixtures.
 
-- \woodworking/finishing/tests/\  
-  Finishing experiments and test boards.
+- woodworking/finishing/  
+  Finishing experiments and reference notes.
 
-- \woodworking/finishing/recipes/\  
-  Reusable finishing recipes and schedules.
-
-- \electronics/builds/\  
+- electronics/builds/  
   Electronics projects and builds.
 
-- \3d-modeling/\  
+- 3d-modeling/  
   Fusion, Blender, and exports.
 
-- \_templates/\  
+- _templates/  
   Markdown templates for new entries.
 
-- \_scripts/\  
+- _scripts/  
   PowerShell scripts to scaffold new entries and build indexes.
 
 ## Workflow
 
-1. Open \shop-notes.code-workspace\ in VS Code.
-2. Use **Run Task** to create new recipes, projects, jigs, finishing tests, or electronics builds.
+1. Open shop-notes.code-workspace in VS Code.
+2. Use **Run Task** to create new recipes, resin notes, projects, jigs, finishing notes, or electronics builds.
 3. Add photos, sketches, and notes.
 4. Commit and push to GitHub.

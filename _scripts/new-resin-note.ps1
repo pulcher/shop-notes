@@ -1,27 +1,25 @@
-﻿param(
+param(
     [Parameter(Mandatory = $true)]
     [string]$Name
 )
 
 $slug = $Name.ToLower().Replace(" ", "-")
 $date = Get-Date -Format "yyyy-MM-dd"
-$dir = "resin/recipes/$date-$slug"
+$dir = "resin/notes/$date-$slug"
 
 New-Item -ItemType Directory -Path $dir -Force | Out-Null
-New-Item -ItemType Directory -Path "$dir/photos" -Force | Out-Null
-New-Item -ItemType Directory -Path "$dir/sketches" -Force | Out-Null
 
-$template = "_templates/resin-recipe.md"
+$template = "_templates/resin-note.md"
 $content = Get-Content $template -Raw
 
 $content = $content.Replace("{{Name}}", $Name).
     Replace("{{Date}}", $date).
-    Replace("{{BatchId}}", [guid]::NewGuid().ToString())
+    Replace("{{NoteId}}", [guid]::NewGuid().ToString())
 
-$outputFile = "$dir/recipe.md"
+$outputFile = "$dir/note.md"
 $content | Out-File $outputFile -Encoding UTF8
 
-Write-Host "Created resin recipe at $dir"
+Write-Host "Created resin note at $dir"
 
 $editorCommand = Get-Command code -ErrorAction SilentlyContinue
 if (-not $editorCommand) {
